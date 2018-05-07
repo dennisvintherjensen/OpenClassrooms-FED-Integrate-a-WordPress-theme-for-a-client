@@ -1,0 +1,616 @@
+/*
+Theme Name:   WP Real Estate Child
+Theme URI:    http://example.com/twenty-fifteen-child/
+Description:  Child Theme of WP Real Estate created by Rohit Tripathi
+Author:       Dennis Vinther Jensen
+Template:     wp-real-estate
+Author URI:   http://example.com
+Version: 1.0.1
+License: GNU General Public License v3
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
+Tags: custom-background, two-columns, one-column, custom-colors, flexible-header, theme-options, right-sidebar, grid-layout, custom-menu, threaded-comments, translation-ready, featured-images, photography, e-commerce, blog
+Text Domain: wp-real-estate
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+WP Real Estate is based on Underscores http://underscores.me/, (C) 2012-2014 Automattic, Inc.
+
+Resetting and rebuilding styles have been helped along thanks to the fine work of
+Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
+along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
+and Blueprint http://www.blueprintcss.org/
+
+*/
+
+/* GENERIC
+------------------------------------------------------------------- */
+
+body {
+    border: none; /* Going for a clean look without to much clutter */
+    background: #ECEFF1;
+    font-size: 16px;
+    color: #555;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    text-transform: uppercase;
+}
+
+a {
+    text-decoration: none;
+    color: #9C27B0;
+}
+
+a:hover, a:focus {
+    color: #9C27B0;
+    text-decoration: none;
+}
+
+.mega-container {
+    background: transparent;
+}
+
+.label {
+    color: #555;
+}
+
+#content #content { /* Theme error that causes child #content/.container element */
+    margin-top: 0;
+}
+
+.site-content.container { /* Theme error that causes child #content/.container element */
+    padding: 0 30px;
+}
+
+.site-content.container .container { /* Theme error that causes child #content/.container element */
+    padding: 0;
+    width: 100%;
+}
+
+/* TOP HEADER 
+------------------------------------------------------------------- */
+
+/* - SITE TITLE */
+#masthead h1.site-title {
+    font-weight: normal;
+}
+
+#masthead h1.site-title a {
+    text-decoration: none;
+}
+
+#masthead h2.site-description {
+    text-indent: 2px; /* Indent a bit to give a softer look */
+    color: #9C27B0;
+}
+
+/* - NAVIGATION */
+#site-navigation {
+    background: transparent;
+    margin-bottom: 0;
+}
+
+#site-navigation ul li a {
+    text-decoration: none;
+    transition: none; /* transition causes change in color to be less visible */
+}
+
+#site-navigation ul li a:hover {
+    color: #9C27B0;
+}
+
+/* - SOCIAL ICONS */
+#site-navigation .social-icons a {
+    transition: none;
+}
+
+#site-navigation .social-icons a:hover {
+    background: none;
+    color: #9C27B0;
+}
+
+/* MAIN HEADER 
+------------------------------------------------------------------- */
+
+/* - IMAGE AND INFO */
+#header-image {
+    width: 100%;
+    padding: 0;
+}
+
+#header-image .header-information {
+    left: 0;
+    right: 0;
+    width: 100%;
+}
+
+#header-image .header-info-inner {
+    padding: 0 25px;
+}
+
+#header-image .header-information a:hover {
+    border-color: #9C27B0;
+}
+
+/* QUOTES
+------------------------------------------------------------------- */
+
+#content .qm_quote {
+    position: relative;
+    margin: 0 0 80px 0;
+    padding: 25px;
+    box-shadow: none;
+    text-align: left;
+    font-size: 16px;
+    line-height: 25px;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+/* Used because: Setting overflow: hidden on .qm_qoute in order to avoid .qm_quote_author flowing outside will cause 1px issue in chrome when childs are pos absolute */
+#content .qm_quote:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+#content .qm_quote:before {
+    position: absolute;
+    content: '';
+    bottom: -10px;
+    left: 15px;
+    height: 20px;
+    width: 20px;
+    background: #fff;
+    border-bottom: 1px solid #dcdcdc;
+    border-right: 1px solid #dcdcdc;
+    color: #fff;
+    transform: rotate(45deg);
+}
+
+#content .qm_quote_text {
+    font-style: italic;
+}
+
+#content .qm_quote_text::before, #content .qm_quote_text::after {
+    content: '';
+}
+
+#content .qm_quote_author {
+    position: absolute;
+    font-size: 14px;
+    padding: 0;
+    font-style: normal;
+    bottom: -40px;
+    left: 10px;
+}
+
+/* LISTINGS
+------------------------------------------------------------------- */
+
+#content .wp-listings-shortcode {
+    margin-bottom: 40px;
+}
+
+#content .listing-wrap {
+    border: 1px solid #dcdcdc;
+    margin-bottom: 30px;
+}
+
+#content .listing-price,
+#content .listing-status.active {
+    background: rgba(0, 0, 0, .5);
+    font-weight: normal;
+    box-shadow: none;
+}
+
+#content .listing-meta a {
+    color: #9C27B0;
+    font-weight: normal;
+}
+
+#content .listing-widget-details {
+    border: none;
+}
+
+#content h3.listing-title a {
+    color: #9C27B0;
+}
+
+#content .listing-address {
+    line-height: 25px; 
+}
+
+#content .listing-beds-baths-sqft {
+    font-size: 14px;
+}
+
+/* - LISTINGS, SINGLE */
+#content .wplistings-single-listing .listing-image-wrap {
+    border: 1px solid #dcdcdc;
+    border-bottom: none;
+}
+
+#content .wplistings-single-listing .listing-meta {
+    background: #fff;
+    margin-bottom: 50px;
+    border: 1px solid #dcdcdc;
+    border-top: none;
+}
+
+#content .wplistings-single-listing .listing-meta li {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: normal;
+}
+
+#content .wplistings-single-listing .listing-meta li span.label {
+    font-weight: normal;
+    font-size: 14px;
+}
+
+#content .wplistings-single-listing tbody {
+    border-bottom: 1px solid #efefef;
+}
+
+#content .wplistings-single-listing tbody.right {
+    width: 50%;
+}
+
+#content .wplistings-single-listing table tr:nth-child(even) {
+    background: transparent;
+}
+
+#content .wplistings-single-listing td {
+    padding: 10px 0;
+    border-top: 1px solid #efefef;
+}
+
+#content .wplistings-single-listing td.label {
+    font-weight: normal;
+    text-transform: none;
+    display: table-cell;
+    text-align: left;
+}
+
+#map-canvas {
+    border:  1px solid #dcdcdc;
+}
+
+/* - LISTINGS, SINGLE: CONTACT */
+#content #listing-agent, #content  #listing-contact {
+    background: #fff;
+    border: 1px solid #dcdcdc;
+}
+
+#content  #listing-contact .caldera-grid {
+    margin: 0;
+}
+
+#listing-contact .thanks {
+    text-align: center;
+}
+
+/* FOOTER SIDEBAR
+------------------------------------------------------------------- */
+
+#footer-sidebar .footer-column .widget_recent_entries ul li:before, #footer-sidebar .footer-column .widget_recent_comments ul li:before, #footer-sidebar .footer-column .widget_categories ul li:before, #footer-sidebar .footer-column .widget_pages ul li:before, #footer-sidebar .footer-column .widget_archive ul li:before, #footer-sidebar .footer-column .widget_meta ul li:before, #footer-sidebar .footer-column .widget_nav_menu ul li:before {
+    content: '';
+    margin: 0;
+}
+
+#footer-sidebar {
+    background: #fff;
+    border-top: 5px solid #9C27B0;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+#footer-sidebar .footer-column {
+    margin-bottom: 30px;
+}
+
+#footer-sidebar .footer-column .widget {
+    color: #555;
+}
+
+#footer-sidebar .footer-column h1.widget-title {
+    border-bottom: 1px solid #dcdcdc;
+    padding-bottom: 10px;
+    color: #555;
+}
+
+#footer-sidebar .footer-column .widget ul {
+    margin: -10px 0 0 0;
+    padding: 0;
+}
+
+#footer-sidebar .footer-column .widget ul li {
+    margin: 0;
+    padding: 10px 0;
+    list-style: none;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+#footer-sidebar .footer-column .widget ul li a {
+    display: block;
+    padding: 10px 0;
+    margin: -10px 0;
+    transition: none;
+    color: #9C27B0;
+    font-weight: normal;
+}
+
+#footer-sidebar .footer-column .widget ul li a:hover {
+    background: transparent;
+    color: #9C27B0;
+}
+
+/* FOOTER
+------------------------------------------------------------------- */
+
+#colophon {
+    background: #fff;
+    color: #555;
+    border-top: 1px solid #dcdcdc;
+}
+
+#colophon a {
+    color: #9C27B0;
+    text-decoration: none;
+}
+
+/* NAVIGATION 
+------------------------------------------------------------------- */
+#content .listing-navigation {
+    max-width: 100%;
+    padding: 0;
+    margin-bottom: 60px;
+}
+
+#content .nav-links {
+    display: flex; 
+    border: none;   
+}
+
+#content .listing-navigation a {
+    font-weight: normal;
+    color: #9C27B0;
+    border: none;
+    padding: 0;
+    width: auto;
+    flex: 1;
+}
+
+.nav-links a[rel=prev] {
+    
+}
+
+.nav-links a[rel=prev] .meta-nav {
+    padding-right: 10px;
+}
+
+.nav-links a[rel=next] {
+    display: flex;
+    flex-flow: row-reverse;
+    align-items: baseline;
+}
+
+.nav-links a[rel=next] .meta-nav {
+    padding-left: 10px;
+}
+
+#content .listing-navigation .meta-nav {
+    font-weight: normal;
+    color: #555;
+    font-size: 14px;
+    display: inline;
+}
+
+/* TABS 
+------------------------------------------------------------------- */
+#content .ui-tabs .ui-tabs-panel {
+    background: #fff;
+    border-color: #dcdcdc;
+    padding: 25px 25px 15px 25px;
+    margin-bottom: 50px;
+}
+
+#content .ui-tabs .ui-tabs-nav li a {
+    font-weight: normal;
+    background: #777;
+    color: #fff;
+    border: 1px solid #f6f6f6;
+    border-bottom: none;
+}
+
+#content .ui-tabs .ui-tabs-nav li.ui-tabs-active a {
+    background: #fff;
+    border-color: #dcdcdc;
+    color: #555;
+}
+
+/* GALLERY 
+------------------------------------------------------------------- */
+
+.mfp-container button:hover, 
+.mfp-container input[type="button"]:hover, 
+.mfp-container input[type="reset"]:hover, 
+.mfp-container input[type="submit"]:hover,
+.mfp-container button:focus, 
+.mfp-container input[type="button"]:focus, 
+.mfp-container input[type="reset"]:focus, 
+.mfp-container input[type="submit"]:focus, 
+.mfp-container button:active, 
+.mfp-container input[type="button"]:active, 
+.mfp-container input[type="reset"]:active, 
+.mfp-container input[type="submit"]:active {
+    box-shadow: none;
+}
+
+#content .gallery-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#content .gallery-grid .gallery-item-wrapper {
+    margin: 0;
+    padding: 10px;
+    float: none;
+    box-sizing: border-box;
+}
+
+#content .gallery-grid .gallery-item-wrapper .gallery-item {
+    margin: 0;
+}
+
+#content .gallery-grid.wc-gallery-gutter-5 {
+    margin: 0;
+}
+
+#content .gallery-grid.gallery-columns-3 .gallery-item-wrapper {
+    width: auto;
+}
+
+#content .gallery-grid .gallery-item-column-1 {
+    clear: none;
+}
+
+/* ARCHIVE
+------------------------------------------------------------------- */
+
+.archive.fpt-template-wp-real-estate .content-area {
+    margin-bottom: 60px;
+}
+
+#content .archive-listing-navigation .page-numbers.current,
+#content .archive-listing-navigation a:hover {
+    border-top-color: #dcdcdc;
+}
+
+#content .archive-header {
+    margin-bottom: 30px;
+}
+
+
+/* CONTACT FORM
+------------------------------------------------------------------- */
+
+.caldera-grid {
+    margin-top: 20px;
+    margin-bottom: 60px;
+    background: #fff;
+    padding: 10px 25px 10px 25px;
+}
+
+.caldera-grid h2 {
+    font-size: 18px;
+}
+
+#content .caldera-grid hr {
+    display: none;
+}
+
+#content .caldera-grid .alert-success {
+    background: transparent;
+    padding: 80px 0;
+    margin-top: 10px;
+    color: #555;
+    border: none;
+    text-align: center;
+}
+
+/* MINOR RESPONSIVE ISSUES - Theme uses several different sizes
+------------------------------------------------------------------- */
+@media screen and (max-width: 991px) {
+    #site-navigation {
+        /* menu is pushed down too much */
+        padding: 0;
+    }
+    #header-image .header-information .line1 {
+        /* font is not adjusted */
+        font-size: 26px;
+    }
+    #header-image .header-information .line2 h4 {
+        /* font is not adjusted */
+        font-size: 20px;
+        line-height: 1.5;
+    }
+    #site-navigation .social-icons {
+        margin-bottom: 15px;
+    }
+}
+@media screen and (max-width: 785px) {
+    /* Fix: Theme uses some JS to display the mobile menu which does not match the CSS hiding the normal menu - so at certain sizes, no menu is shown */
+    .td_mobile_menu_wrap {
+        min-height: 42px;
+        padding: 0 10px;
+        margin-bottom: 0px;
+        position: relative;
+        display: inline-block;
+    }
+    .td_mobile_menu_wrap:after {
+        content: "\f103";
+        font-family: "FontAwesome";
+        color: #8b8b8b;
+        position: absolute;
+        right: 19px;
+        top: 8px;
+        font-size: 18px;
+    }
+    .mobileMenu {
+        padding: 10px 15px;
+        border: none;
+        box-shadow: none;
+        background: #e6e6e6;
+        color: #0e0e0e; 
+        background-image: none;
+        -webkit-appearance: none; 
+        position: relative; 
+        display: inline-block !important;
+        min-width: 250px;
+    }
+    .main-navigation ul {
+        display: none;
+    }
+}
+@media screen and (max-width: 991px) {
+    /* font sizes again */ 
+    #masthead h2.site-description {
+        margin-top: 15px;
+    }
+    #site-navigation .social-icons {
+        margin-bottom: 15px;
+    }
+}
+@media screen and (max-width: 767px) {
+    #header-image {
+        /* image gets too small due to scaling by width. */
+        height: 300px;
+        /*position: relative;*/
+        display: flex;
+        display: -webkit-flex;
+        justify-content: center;
+        overflow: hidden;
+    }
+    #header-image img {
+        height: 100%;
+        /*position: absolute;*/
+        width: auto !important;
+        max-width: none !important;
+    }
+    #header-image .header-information .header-info-inner {
+        top: 22%;
+    }
+}
+@media screen and (max-width: 600px) {
+    /* font sizes again */
+    #header-image .header-information .line1 {
+        font-size: 20px;
+    }
+    #header-image .header-information .line2 h4 {
+        font-size: 14px;
+    }
+}
